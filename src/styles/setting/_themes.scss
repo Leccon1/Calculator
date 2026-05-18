@@ -1,0 +1,9 @@
+@use '../mixins';
+
+:root {
+	@include theme-vars($colors-light);
+}
+
+.dark {
+	@include theme-vars($colors-dark);
+}
