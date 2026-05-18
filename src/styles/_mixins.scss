@@ -1,0 +1,7 @@
+@use 'sass:map';
+
+@mixin theme-vars($map) {
+	@each $name, $value in $map {
+		--#{$name}: #{$value};
+	}
+}
