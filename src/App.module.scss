@@ -5,4 +5,15 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	&::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background-color: var(--color-accent);
+		width: 75vmin;
+		aspect-ratio: 1;
+		border-radius: 50%;
+		place-self: center;
+	}
 }
