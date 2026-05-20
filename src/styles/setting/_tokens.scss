@@ -1,0 +1,6 @@
+@use '../mixins' as *;
+@use './variables' as *;
+
+:root {
+	@include theme-vars($colors-general);
+}
