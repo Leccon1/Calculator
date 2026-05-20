@@ -21,4 +21,11 @@
 
 .calculator {
 	background: linear-gradient(var(--bg-card-start), var(--bg-card-end));
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 1.6rem;
+	padding: 1.2rem;
+	border-radius: 2.4rem;
 }
