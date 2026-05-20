@@ -28,4 +28,9 @@
 	gap: 1.6rem;
 	padding: 1.2rem;
 	border-radius: 2.4rem;
+
+	.buttons {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+	}
 }
