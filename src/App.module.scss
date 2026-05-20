@@ -36,4 +36,17 @@
 		flex-direction: column;
 		gap: 1.2rem;
 	}
+
+	.button {
+		aspect-ratio: 1;
+		border-radius: 2.4rem;
+		background-color: var(--bg-btn);
+		color: var(--text-btn);
+		font-weight: var(--font-weight-bold);
+		padding: 1.2rem;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 }
