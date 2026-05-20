@@ -25,6 +25,7 @@ function App() {
 						<button className={styles.button}>8</button>
 						<button className={styles.button}>9</button>
 						<button className={styles.button}>0</button>
+						<button className={styles.button}>.</button>
 					</div>
 				</div>
 			</div>
