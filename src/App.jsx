@@ -8,7 +8,13 @@ function App() {
 			<div className={styles.calculator}>
 				<span>{currentValue}</span>
 				<div className={styles.buttonsContainer}>
-					<div className={styles.buttonNumber}>
+					<div className={`${styles.buttonHelpers} ${styles.container}`}>
+						<button className={styles.button}>Ac</button>
+						<button className={styles.button}>&#8592;</button>
+						<button className={styles.button}>/</button>
+						<button className={styles.button}>*</button>
+					</div>
+					<div className={`${styles.buttonNumbers} ${styles.container}`}>
 						<button className={styles.button}>1</button>
 						<button className={styles.button}>2</button>
 						<button className={styles.button}>3</button>
