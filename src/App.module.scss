@@ -59,3 +59,8 @@
 		}
 	}
 }
+
+.container {
+	display: grid;
+	grid-template-columns: repeat(4, 6.4rem);
+}
