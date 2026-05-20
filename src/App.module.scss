@@ -32,7 +32,8 @@
 	border-radius: 2.4rem;
 
 	.buttonsContainer {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
+		display: flex;
+		flex-direction: column;
+		gap: 1.2rem;
 	}
 }
