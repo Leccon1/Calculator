@@ -52,6 +52,10 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+
+		&:active {
+			background-color: var(--bg-btn-active);
+		}
 	}
 
 	.block {
