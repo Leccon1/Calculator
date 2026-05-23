@@ -20,7 +20,11 @@
 }
 
 .calculator {
-	background: linear-gradient(var(--bg-card-start), var(--bg-card-end));
+	background: linear-gradient(
+		-150deg,
+		var(--bg-card-start),
+		var(--bg-card-end) 60%
+	);
 
 	font-size: 3.2rem;
 
