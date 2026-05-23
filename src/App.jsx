@@ -12,7 +12,7 @@ function App() {
 						<button className={styles.button}>Ac</button>
 						<button className={styles.button}>&#8592;</button>
 						<button className={styles.button}>/</button>
-						<button className={styles.button}>*</button>
+						<button className={styles.button}>&#215;</button>
 					</div>
 					<div className={styles.block}>
 						<div className={`${styles.buttonNumbers} ${styles.container}`}>
