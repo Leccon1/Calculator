@@ -2,13 +2,13 @@ import { useState } from 'react'
 import styles from './App.module.scss'
 
 function App() {
-	const currentValue = useState(0)
+	const resultValue = useState(0)
 	return (
 		<div className={styles.App}>
 			<div className={styles.calculator}>
 				<div className={styles.results}>
 					<span className={styles.history}>0</span>
-					<span className={styles.currentValue}>{currentValue}</span>
+					<span className={styles.currentValue}>{resultValue}</span>
 				</div>
 				<div className={styles.buttonsContainer}>
 					<div className={`${styles.buttonHelpers} ${styles.container}`}>
