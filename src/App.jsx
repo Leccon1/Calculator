@@ -6,7 +6,10 @@ function App() {
 	return (
 		<div className={styles.App}>
 			<div className={styles.calculator}>
-				<span>{currentValue}</span>
+				<div className={styles.results}>
+					<span className={styles.history}>0</span>
+					<span className={styles.currentValue}>{currentValue}</span>
+				</div>
 				<div className={styles.buttonsContainer}>
 					<div className={`${styles.buttonHelpers} ${styles.container}`}>
 						<button className={styles.button}>Ac</button>
