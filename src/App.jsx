@@ -44,7 +44,7 @@ function App() {
 								+
 							</button>
 							<button
-								className={`${styles.button} ${styles['button--accent']}`}
+								className={`${styles.button} ${styles['button--equals']} ${styles['button--accent']}`}
 							>
 								=
 							</button>

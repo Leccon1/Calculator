@@ -65,6 +65,15 @@
 				background-color: var(--color-accent-active);
 			}
 		}
+
+		&--equals {
+			background-color: var(--bg-btn-equals);
+			color: var(--text-result);
+
+			&:active {
+				background-color: var(--bg-btn-equals-active);
+			}
+		}
 	}
 
 	.block {
