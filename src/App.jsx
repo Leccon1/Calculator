@@ -5,6 +5,18 @@ function App() {
 	const [expression, setExpression] = useState('')
 	const resultValue = useState(0)
 	const [isCalculated, setIsCalculated] = useState(false)
+
+	const handleNumber = value => {
+		if (isCalculated === true) {
+			setExpression('')
+			setIsCalculated(false)
+		}
+
+		expression === '0'
+			? setExpression(value)
+			: setExpression(expression + value)
+	}
+
 	return (
 		<div className={styles.App}>
 			<div className={styles.calculator}>
