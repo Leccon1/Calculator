@@ -2,7 +2,7 @@ import { useState } from 'react'
 import styles from './App.module.scss'
 
 function App() {
-	const expression = useState('')
+	const [expression, setExpression] = useState('')
 	const resultValue = useState(0)
 	const [isCalculated, setIsCalculated] = useState(false)
 	return (
