@@ -76,6 +76,7 @@
 
 		&:active {
 			background-color: var(--bg-btn-active);
+			transform: scale(0.95);
 		}
 
 		&--accent {
