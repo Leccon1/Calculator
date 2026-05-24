@@ -2,7 +2,9 @@ import { useState } from 'react'
 import styles from './App.module.scss'
 
 function App() {
+	const expression = useState('')
 	const resultValue = useState(0)
+	const [isCalculated, setIsCalculated] = useState(false)
 	return (
 		<div className={styles.App}>
 			<div className={styles.calculator}>
