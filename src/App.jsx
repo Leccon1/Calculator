@@ -8,8 +8,9 @@ function App() {
 
 	const handleNumber = value => {
 		if (isCalculated === true) {
-			setExpression('')
+			setExpression(value)
 			setIsCalculated(false)
+			return
 		}
 
 		expression === '0'
