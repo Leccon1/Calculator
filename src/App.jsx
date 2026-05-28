@@ -31,6 +31,12 @@ function App() {
 		expression.length[-1] === operator ? expression.slice(0, -1) : expression
 	}
 
+	const handleClear = () => {
+		setExpression('')
+		setResultValue(0)
+		setIsCalculated(false)
+	}
+
 	return (
 		<div className={styles.App}>
 			<div className={styles.calculator}>
