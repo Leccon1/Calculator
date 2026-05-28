@@ -59,7 +59,7 @@ function App() {
 			setExpression(expression.slice(0, -1))
 		}
 
-		let finalLine = expression.replaceALL('&#215;', '/')
+		let finalLine = expression.replaceALL('&#215;', '*')
 
 		if (expression.includes('/0') && !expression.slice(-1) === '.') {
 			setResultValue('Error')
