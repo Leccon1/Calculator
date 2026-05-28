@@ -49,6 +49,23 @@ function App() {
 		}
 	}
 
+	const handleEvaluate = () => {
+		if (expression.length === 0) {
+			return
+		}
+
+		if (/[+\-*/]$/.test(expression)) {
+			setExpression(expression.slice(0, -1))
+		}
+
+		let finalLine = expression.replaceALl('&#215;', '/')
+
+		if (expression.includes('/0') && !expression.slice(-1) === '.') {
+			setResultValue('Error')
+			setIsCalculated(true)
+		}
+	}
+
 	return (
 		<div className={styles.App}>
 			<div className={styles.calculator}>
