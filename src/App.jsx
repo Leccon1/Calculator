@@ -29,7 +29,7 @@ function App() {
 			? setExpression(operator)
 			: setExpression(expression + operator)
 
-		expression.length[-1] === operator
+		expression.slice(-1) === operator
 			? setExpression(expression.slice(0, -1))
 			: expression
 	}
