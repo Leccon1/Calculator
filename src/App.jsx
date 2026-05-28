@@ -66,6 +66,30 @@ function App() {
 		}
 	}
 
+	const handleButtonClick = e => {
+		const button = e.target.closest('button')
+		if (!button) return
+		const { type, value } = button.dataset
+
+		switch (type) {
+			case 'number':
+				handleNumber(value)
+				break
+			case 'operator':
+				handleOperator(value)
+				break
+			case 'clear':
+				handleClear()
+				break
+			case 'delete':
+				handleDelete()
+				break
+			case 'evaluate':
+				handleEvaluate()
+				break
+		}
+	}
+
 	return (
 		<div className={styles.App}>
 			<div className={styles.calculator}>
