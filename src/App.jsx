@@ -37,6 +37,16 @@ function App() {
 		setIsCalculated(false)
 	}
 
+	const handleDelete = () => {
+		expression.length > 0
+			? setExpression(expression.slice(0, -1))
+			: setExpression(0)
+
+		if (expression.length === 0) {
+			setResultValue(0)
+		}
+	}
+
 	return (
 		<div className={styles.App}>
 			<div className={styles.calculator}>
