@@ -206,11 +206,7 @@ function App() {
 							>
 								0
 							</button>
-							<button
-								data-type='number'
-								data-value='.'
-								className={styles.button}
-							>
+							<button data-type='dot' data-value='.' className={styles.button}>
 								.
 							</button>
 						</div>
