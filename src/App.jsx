@@ -23,6 +23,7 @@ function App() {
 			operator === '='
 				? setResultValue(resultValue)
 				: setResultValue(resultValue + operator)
+			return
 		}
 
 		resultValue === '0' && operator === '-'
