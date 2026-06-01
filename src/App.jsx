@@ -8,14 +8,14 @@ function App() {
 
 	const handleNumber = value => {
 		if (isCalculated === true) {
-			setExpression(value)
+			setResultValue(value)
 			setIsCalculated(false)
 			return
 		}
 
-		expression === '0'
-			? setExpression(value)
-			: setExpression(expression + value)
+		resultValue === '0'
+			? setResultValue(value)
+			: setResultValue(resultValue + value)
 	}
 
 	const handleOperator = operator => {
