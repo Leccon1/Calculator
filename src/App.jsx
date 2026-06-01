@@ -61,7 +61,7 @@ function App() {
 
 		let finalLine = resultValue.replaceAll('&#215;', '*')
 
-		if (finalLine.includes('/0') && !finalLine.slice(-1) === '.') {
+		if (finalLine.includes('/0') && finalLine.slice(-1) !== '.') {
 			setResultValue('Error')
 			setIsCalculated(true)
 			return
