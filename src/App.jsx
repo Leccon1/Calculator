@@ -41,7 +41,7 @@ function App() {
 	}
 
 	const handleDelete = () => {
-		resultValue.length > 0
+		resultValue.length > 1
 			? setResultValue(resultValue.slice(0, -1))
 			: setResultValue('0')
 
