@@ -25,7 +25,7 @@ function App() {
 				: setResultValue(resultValue + operator)
 		}
 
-		resultValue === '' && operator === '-'
+		resultValue === '0' && operator === '-'
 			? setResultValue(operator)
 			: setResultValue(resultValue + operator)
 
