@@ -99,7 +99,7 @@ function App() {
 					<span className={styles.history}>0</span>
 					<span className={styles.currentValue}>{resultValue}</span>
 				</div>
-				<div className={styles.buttonsContainer}>
+				<div className={styles.buttonsContainer} onClick={handleButtonClick}>
 					<div className={`${styles.buttonHelpers} ${styles.container}`}>
 						<button data-type='clear' className={styles.button}>
 							Ac
