@@ -85,6 +85,10 @@ function App() {
 		if (!button) return
 		const { type, value } = button.dataset
 
+		if (resultValue === 'Error' && type !== 'clear') {
+			return
+		}
+
 		switch (type) {
 			case 'number':
 				handleNumber(value)
