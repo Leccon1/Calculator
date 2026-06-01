@@ -21,17 +21,17 @@ function App() {
 	const handleOperator = operator => {
 		if (isCalculated === true) {
 			operator === '='
-				? setExpression(expression)
-				: setExpression(expression + operator)
+				? setResultValue(resultValue)
+				: setResultValue(resultValue + operator)
 		}
 
-		expression === '' && operator === '-'
-			? setExpression(operator)
-			: setExpression(expression + operator)
+		resultValue === '' && operator === '-'
+			? setResultValue(operator)
+			: setResultValue(resultValue + operator)
 
-		expression.slice(-1) === operator
-			? setExpression(expression.slice(0, -1))
-			: expression
+		resultValue.slice(-1) === operator
+			? setResultValue(resultValue.slice(0, -1))
+			: resultValue
 	}
 
 	const handleClear = () => {
