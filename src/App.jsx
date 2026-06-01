@@ -29,9 +29,9 @@ function App() {
 			? setResultValue(operator)
 			: setResultValue(resultValue + operator)
 
-		resultValue.slice(-1) === operator
-			? setResultValue(resultValue.slice(0, -1))
-			: resultValue
+		if (/[+\-*/]$/.test(resultValue)) {
+			setResultValue(resultValue.slice(0, -1) + operator)
+		}
 	}
 
 	const handleClear = () => {
