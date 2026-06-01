@@ -26,12 +26,14 @@ function App() {
 			return
 		}
 
-		resultValue === '0' && operator === '-'
-			? setResultValue(operator)
-			: setResultValue(resultValue + operator)
-
-		if (/[+\-*/]$/.test(resultValue)) {
-			setResultValue(resultValue.slice(0, -1) + operator)
+		if (resultValue === '0' && operator === '-') {
+			setResultValue(operator)
+		} else if (/[+\-*/]$/.test(resultValue)) {
+			setResultValue(
+				resultValue.length === 1 ? '0' : resultValue.slice(0, -1) + operator,
+			)
+		} else {
+			setResultValue(resultValue + operator)
 		}
 	}
 
