@@ -37,6 +37,15 @@ function App() {
 		}
 	}
 
+	const handleDot = () => {
+		const tokens = resultValue.split(/([+\-*/])/)
+		const lastToken = tokens[tokens.length - 1]
+
+		if (!lastToken.includes('.')) {
+			setResultValue(lastToken === '' ? '0.' : resultValue + '.')
+		}
+	}
+
 	const handleClear = () => {
 		setExpression('')
 		setResultValue('0')
