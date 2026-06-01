@@ -42,7 +42,7 @@ function App() {
 		const lastToken = tokens[tokens.length - 1]
 
 		if (!lastToken.includes('.')) {
-			setResultValue(lastToken === '' ? '0.' : resultValue + '.')
+			setResultValue(lastToken === '' ? resultValue + '0.' : resultValue + '.')
 		}
 	}
 
