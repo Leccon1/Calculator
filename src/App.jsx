@@ -71,7 +71,7 @@ function App() {
 			setResultValue(resultValue.slice(0, -1))
 		}
 
-		let finalLine = resultValue.replaceAll('&#215;', '*')
+		let finalLine = resultValue.replaceAll('&#215;', '*').replaceAll('÷', '/')
 
 		if (finalLine.includes('/0') && finalLine.slice(-1) !== '.') {
 			setResultValue('Error')
