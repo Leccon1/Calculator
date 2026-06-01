@@ -51,15 +51,15 @@ function App() {
 	}
 
 	const handleEvaluate = () => {
-		if (expression.length === 0) {
+		if (resultValue.length === 0) {
 			return
 		}
 
-		if (/[+\-*/]$/.test(expression)) {
-			setExpression(expression.slice(0, -1))
+		if (/[+\-*/]$/.test(resultValue)) {
+			setResultValue(resultValue.slice(0, -1))
 		}
 
-		let finalLine = expression.replaceALL('&#215;', '*')
+		let finalLine = resultValue.replaceAll('&#215;', '*')
 
 		if (finalLine.includes('/0') && !finalLine.slice(-1) === '.') {
 			setResultValue('Error')
