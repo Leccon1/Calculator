@@ -36,16 +36,16 @@ function App() {
 
 	const handleClear = () => {
 		setExpression('')
-		setResultValue(0)
+		setResultValue('0')
 		setIsCalculated(false)
 	}
 
 	const handleDelete = () => {
-		expression.length > 0
-			? setExpression(expression.slice(0, -1))
-			: setExpression(0)
+		resultValue.length > 0
+			? setResultValue(resultValue.slice(0, -1))
+			: setResultValue(0)
 
-		if (expression.length === 0) {
+		if (resultValue.length === 0) {
 			setResultValue(0)
 		}
 	}
