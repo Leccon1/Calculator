@@ -3,7 +3,7 @@ import styles from './App.module.scss'
 
 function App() {
 	const [expression, setExpression] = useState('')
-	const [resultValue, setResultValue] = useState(0)
+	const [resultValue, setResultValue] = useState('0')
 	const [isCalculated, setIsCalculated] = useState(false)
 
 	const handleNumber = value => {
