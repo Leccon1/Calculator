@@ -78,6 +78,15 @@ function App() {
 			setIsCalculated(true)
 			return
 		}
+
+		try {
+			const result = new Function(`return ${finalLine}`)()
+			setResultValue(String(result))
+			setIsCalculated(true)
+		} catch (error) {
+			setResultValue('Error')
+			setIsCalculated(true)
+		}
 	}
 
 	const handleButtonClick = e => {
