@@ -92,6 +92,9 @@ function App() {
 			case 'operator':
 				handleOperator(value)
 				break
+			case 'dot':
+				handleDot()
+				break
 			case 'clear':
 				handleClear()
 				break
