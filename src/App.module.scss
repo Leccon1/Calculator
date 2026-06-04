@@ -51,6 +51,10 @@
 			font-size: 2.4rem;
 			color: var(--text-history);
 			align-self: end;
+
+			&--visible {
+				animation: fadeInUp 0.35s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+			}
 		}
 
 		.currentValue {
@@ -136,4 +140,15 @@
 	display: grid;
 	grid-template-columns: repeat(4, 6.4rem);
 	gap: 1.2rem;
+}
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(6px);
+	}
+	to {
+		opacity: 0.6;
+		transform: translateY(0);
+	}
 }
