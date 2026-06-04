@@ -67,20 +67,18 @@ function App() {
 			return
 		}
 
-		if (/[+\-*/]$/.test(resultValue)) {
+		if (/[+\-*/×÷]/.test(resultValue)) {
 			setResultValue(resultValue.slice(0, -1))
 		}
 
-		let finalLine = resultValue.replaceAll('&#215;', '*').replaceAll('÷', '/')
-
-		if (finalLine.includes('/0') && finalLine.slice(-1) !== '.') {
+		if (resultValue.includes('/0') && resultValue.slice(-1) !== '.') {
 			setResultValue('Error')
 			setIsCalculated(true)
 			return
 		}
 
 		try {
-			const result = new Function(`return ${finalLine}`)()
+			const result = new Function(`return ${resultValue}`)()
 			setResultValue(String(result))
 			setIsCalculated(true)
 		} catch (error) {
