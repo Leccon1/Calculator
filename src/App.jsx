@@ -143,7 +143,12 @@ function App() {
 		<div className={styles.App}>
 			<div className={styles.calculator}>
 				<div className={styles.results}>
-					<span className={styles.history}>{historyValue}</span>
+					<span
+						key={historyValue}
+						className={`${styles.history} ${historyValue ? styles['history--visible'] : ''}`}
+					>
+						{historyValue}
+					</span>
 					<span className={styles.currentValue}>
 						{resultValue.replaceAll('*', '×').replaceAll('/', '÷')}
 					</span>
