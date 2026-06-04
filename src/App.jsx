@@ -70,6 +70,8 @@ function App() {
 			setResultValue(resultValue.slice(0, -1))
 		}
 
+		setHistoryValue(resultValue + ' =')
+
 		if (resultValue.includes('/0') && resultValue.slice(-1) !== '.') {
 			setResultValue('Error')
 			setIsCalculated(true)
