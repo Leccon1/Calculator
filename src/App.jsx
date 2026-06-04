@@ -123,7 +123,9 @@ function App() {
 			<div className={styles.calculator}>
 				<div className={styles.results}>
 					<span className={styles.history}>0</span>
-					<span className={styles.currentValue}>{resultValue}</span>
+					<span className={styles.currentValue}>
+						{resultValue.replaceAll('*', '×').replaceAll('/', '÷')}
+					</span>
 				</div>
 				<div className={styles.buttonsContainer} onClick={handleButtonClick}>
 					<div className={`${styles.buttonHelpers} ${styles.container}`}>
