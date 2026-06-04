@@ -118,7 +118,24 @@ function App() {
 		}
 	}
 
-	useEffect(() => {}, [])
+	useEffect(() => {
+		const handleKeyDown = e => {
+			const key = e.key
+
+			if (/[0-9.]/.test(key)) handleNumber(key)
+			else if (/[+\-*/]/.test(key)) handleOperator(key)
+			else if (key === '.') handleDot()
+			else if (key === 'Backspace') handleDelete()
+			else if (key === 'Escape') handleClear()
+			else if (key === 'Enter' || key === '=') handleEvaluate()
+		}
+
+		window.addEventListener('keydown', handleKeyDown)
+
+		return () => {
+			window.removeEventListener('keydown', handleKeyDown)
+		}
+	}, [resultValue])
 
 	return (
 		<div className={styles.App}>
