@@ -49,6 +49,7 @@ function App() {
 	const handleClear = () => {
 		setResultValue('0')
 		setIsCalculated(false)
+		setHistoryValue('')
 	}
 
 	const handleDelete = () => {
