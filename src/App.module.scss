@@ -19,6 +19,12 @@
 	}
 }
 
+.calculatorContainer {
+	display: flex;
+	flex-direction: row;
+	gap: 3.2rem;
+}
+
 .calculator {
 	background: linear-gradient(
 		-150deg,
