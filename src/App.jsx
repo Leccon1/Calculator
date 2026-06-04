@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import styles from './App.module.scss'
 
 function App() {
+	const [historyValue, setHistoryValue] = useState('')
 	const [resultValue, setResultValue] = useState('0')
 	const [isCalculated, setIsCalculated] = useState(false)
 
