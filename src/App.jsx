@@ -137,10 +137,10 @@ function App() {
 						</button>
 						<button
 							data-type='operator'
-							data-value='÷'
+							data-value='/'
 							className={`${styles.button} ${styles['button--accent']}`}
 						>
-							/
+							&#247;
 						</button>
 						<button
 							data-type='operator'
