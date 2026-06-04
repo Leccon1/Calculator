@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './App.module.scss'
 
 function App() {
@@ -117,6 +117,8 @@ function App() {
 				break
 		}
 	}
+
+	useEffect(() => {}, [])
 
 	return (
 		<div className={styles.App}>
