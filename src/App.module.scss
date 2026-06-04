@@ -1,4 +1,5 @@
 .App {
+	position: relative;
 	width: 100%;
 	height: 100vh;
 
@@ -42,6 +43,14 @@
 	gap: 1.6rem;
 	padding: 2.4rem;
 	border-radius: 2.4rem;
+
+	&.calculatorLight {
+		transform: translateY(-2.4rem);
+	}
+
+	&.calculatorDark {
+		transform: translateY(2.4rem);
+	}
 
 	.results {
 		font-weight: bold;
