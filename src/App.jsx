@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import styles from './App.module.scss'
 
 function App() {
-	const [expression, setExpression] = useState('')
 	const [resultValue, setResultValue] = useState('0')
 	const [isCalculated, setIsCalculated] = useState(false)
 
@@ -47,7 +46,6 @@ function App() {
 	}
 
 	const handleClear = () => {
-		setExpression('')
 		setResultValue('0')
 		setIsCalculated(false)
 	}
