@@ -141,139 +141,286 @@ function App() {
 
 	return (
 		<div className={styles.App}>
-			<div className={styles.calculator}>
-				<div className={styles.results}>
-					<span
-						key={historyValue}
-						className={`${styles.history} ${historyValue ? styles['history--visible'] : ''}`}
-					>
-						{historyValue}
-					</span>
-					<span className={styles.currentValue}>
-						{resultValue.replaceAll('*', '×').replaceAll('/', '÷')}
-					</span>
-				</div>
-				<div className={styles.buttonsContainer} onClick={handleButtonClick}>
-					<div className={`${styles.buttonHelpers} ${styles.container}`}>
-						<button data-type='clear' className={styles.button}>
-							Ac
-						</button>
-						<button data-type='delete' className={styles.button}>
-							&#8592;
-						</button>
-						<button
-							data-type='operator'
-							data-value='/'
-							className={`${styles.button} ${styles['button--accent']}`}
+			<div className={styles.calculatorContainer}>
+				<div className={`${styles.calculator} ${styles.calculatorLight}`}>
+					<div className={styles.results}>
+						<span
+							key={historyValue}
+							className={`${styles.history} ${historyValue ? styles['history--visible'] : ''}`}
 						>
-							&#247;
-						</button>
-						<button
-							data-type='operator'
-							data-value='*'
-							className={`${styles.button} ${styles['button--accent']}`}
-						>
-							&#215;
-						</button>
+							{historyValue}
+						</span>
+						<span className={styles.currentValue}>
+							{resultValue.replaceAll('*', '×').replaceAll('/', '÷')}
+						</span>
 					</div>
-					<div className={styles.block}>
-						<div className={`${styles.buttonNumbers} ${styles.container}`}>
-							<button
-								data-type='number'
-								data-value='7'
-								className={styles.button}
-							>
-								7
+					<div className={styles.buttonsContainer} onClick={handleButtonClick}>
+						<div className={`${styles.buttonHelpers} ${styles.container}`}>
+							<button data-type='clear' className={styles.button}>
+								Ac
+							</button>
+							<button data-type='delete' className={styles.button}>
+								&#8592;
 							</button>
 							<button
-								data-type='number'
-								data-value='8'
-								className={styles.button}
+								data-type='operator'
+								data-value='/'
+								className={`${styles.button} ${styles['button--accent']}`}
 							>
-								8
+								&#247;
 							</button>
 							<button
-								data-type='number'
-								data-value='9'
-								className={styles.button}
+								data-type='operator'
+								data-value='*'
+								className={`${styles.button} ${styles['button--accent']}`}
 							>
-								9
-							</button>
-							<button
-								data-type='number'
-								data-value='4'
-								className={styles.button}
-							>
-								4
-							</button>
-							<button
-								data-type='number'
-								data-value='5'
-								className={styles.button}
-							>
-								5
-							</button>
-							<button
-								data-type='number'
-								data-value='6'
-								className={styles.button}
-							>
-								6
-							</button>
-							<button
-								data-type='number'
-								data-value='1'
-								className={styles.button}
-							>
-								1
-							</button>
-							<button
-								data-type='number'
-								data-value='2'
-								className={styles.button}
-							>
-								2
-							</button>
-							<button
-								data-type='number'
-								data-value='3'
-								className={styles.button}
-							>
-								3
-							</button>
-							<button
-								data-type='number'
-								data-value='0'
-								className={styles.button}
-							>
-								0
-							</button>
-							<button data-type='dot' data-value='.' className={styles.button}>
-								.
+								&#215;
 							</button>
 						</div>
+						<div className={styles.block}>
+							<div className={`${styles.buttonNumbers} ${styles.container}`}>
+								<button
+									data-type='number'
+									data-value='7'
+									className={styles.button}
+								>
+									7
+								</button>
+								<button
+									data-type='number'
+									data-value='8'
+									className={styles.button}
+								>
+									8
+								</button>
+								<button
+									data-type='number'
+									data-value='9'
+									className={styles.button}
+								>
+									9
+								</button>
+								<button
+									data-type='number'
+									data-value='4'
+									className={styles.button}
+								>
+									4
+								</button>
+								<button
+									data-type='number'
+									data-value='5'
+									className={styles.button}
+								>
+									5
+								</button>
+								<button
+									data-type='number'
+									data-value='6'
+									className={styles.button}
+								>
+									6
+								</button>
+								<button
+									data-type='number'
+									data-value='1'
+									className={styles.button}
+								>
+									1
+								</button>
+								<button
+									data-type='number'
+									data-value='2'
+									className={styles.button}
+								>
+									2
+								</button>
+								<button
+									data-type='number'
+									data-value='3'
+									className={styles.button}
+								>
+									3
+								</button>
+								<button
+									data-type='number'
+									data-value='0'
+									className={styles.button}
+								>
+									0
+								</button>
+								<button
+									data-type='dot'
+									data-value='.'
+									className={styles.button}
+								>
+									.
+								</button>
+							</div>
+							<div className={`${styles.buttonHelpers} ${styles.container}`}>
+								<button
+									data-type='operator'
+									data-value='-'
+									className={`${styles.button} ${styles['button--accent']}`}
+								>
+									-
+								</button>
+								<button
+									data-type='operator'
+									data-value='+'
+									className={`${styles.button} ${styles['button--accent']}`}
+								>
+									+
+								</button>
+								<button
+									data-type='evaluate'
+									data-value='='
+									className={`${styles.button} ${styles['button--equals']} ${styles['button--accent']}`}
+								>
+									=
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className={`${styles.calculator} ${styles.calculatorDark}`}>
+					<div className={styles.results}>
+						<span
+							key={historyValue}
+							className={`${styles.history} ${historyValue ? styles['history--visible'] : ''}`}
+						>
+							{historyValue}
+						</span>
+						<span className={styles.currentValue}>
+							{resultValue.replaceAll('*', '×').replaceAll('/', '÷')}
+						</span>
+					</div>
+					<div className={styles.buttonsContainer} onClick={handleButtonClick}>
 						<div className={`${styles.buttonHelpers} ${styles.container}`}>
-							<button
-								data-type='operator'
-								data-value='-'
-								className={`${styles.button} ${styles['button--accent']}`}
-							>
-								-
+							<button data-type='clear' className={styles.button}>
+								Ac
+							</button>
+							<button data-type='delete' className={styles.button}>
+								&#8592;
 							</button>
 							<button
 								data-type='operator'
-								data-value='+'
+								data-value='/'
 								className={`${styles.button} ${styles['button--accent']}`}
 							>
-								+
+								&#247;
 							</button>
 							<button
-								data-type='evaluate'
-								data-value='='
-								className={`${styles.button} ${styles['button--equals']} ${styles['button--accent']}`}
+								data-type='operator'
+								data-value='*'
+								className={`${styles.button} ${styles['button--accent']}`}
 							>
-								=
+								&#215;
 							</button>
+						</div>
+						<div className={styles.block}>
+							<div className={`${styles.buttonNumbers} ${styles.container}`}>
+								<button
+									data-type='number'
+									data-value='7'
+									className={styles.button}
+								>
+									7
+								</button>
+								<button
+									data-type='number'
+									data-value='8'
+									className={styles.button}
+								>
+									8
+								</button>
+								<button
+									data-type='number'
+									data-value='9'
+									className={styles.button}
+								>
+									9
+								</button>
+								<button
+									data-type='number'
+									data-value='4'
+									className={styles.button}
+								>
+									4
+								</button>
+								<button
+									data-type='number'
+									data-value='5'
+									className={styles.button}
+								>
+									5
+								</button>
+								<button
+									data-type='number'
+									data-value='6'
+									className={styles.button}
+								>
+									6
+								</button>
+								<button
+									data-type='number'
+									data-value='1'
+									className={styles.button}
+								>
+									1
+								</button>
+								<button
+									data-type='number'
+									data-value='2'
+									className={styles.button}
+								>
+									2
+								</button>
+								<button
+									data-type='number'
+									data-value='3'
+									className={styles.button}
+								>
+									3
+								</button>
+								<button
+									data-type='number'
+									data-value='0'
+									className={styles.button}
+								>
+									0
+								</button>
+								<button
+									data-type='dot'
+									data-value='.'
+									className={styles.button}
+								>
+									.
+								</button>
+							</div>
+							<div className={`${styles.buttonHelpers} ${styles.container}`}>
+								<button
+									data-type='operator'
+									data-value='-'
+									className={`${styles.button} ${styles['button--accent']}`}
+								>
+									-
+								</button>
+								<button
+									data-type='operator'
+									data-value='+'
+									className={`${styles.button} ${styles['button--accent']}`}
+								>
+									+
+								</button>
+								<button
+									data-type='evaluate'
+									data-value='='
+									className={`${styles.button} ${styles['button--equals']} ${styles['button--accent']}`}
+								>
+									=
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
