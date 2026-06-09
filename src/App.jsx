@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { use, useEffect, useState } from 'react'
 import styles from './App.module.scss'
 
 function App() {
@@ -129,7 +129,14 @@ function App() {
 		const { theme } = calculators.dataset
 
 		setActiveCalculator(theme)
-		document.documentElement.classList.toggle('dark', theme === 'dark')
+
+		if (theme === 'light') {
+			document.documentElement.classList.add('light')
+			document.documentElement.classList.remove('dark')
+		} else {
+			document.documentElement.classList.remove('light')
+			document.documentElement.classList.add('dark')
+		}
 	}
 
 	useEffect(() => {
@@ -157,7 +164,7 @@ function App() {
 				<div
 					onClick={toogleThemes}
 					data-theme='light'
-					className={`${styles.calculator} calculatorLight`}
+					className={`${styles.calculator} ${styles[activeCalculator === 'light' ? 'light' : 'dark']} calculatorLight`}
 				>
 					<div className={styles.results}>
 						<span
