@@ -164,7 +164,7 @@ function App() {
 				<div
 					onClick={toogleThemes}
 					data-theme='light'
-					className={`${styles.calculator} ${styles[activeCalculator === 'light' ? 'light' : 'dark']} calculatorLight`}
+					className={`${styles.calculator} ${activeCalculator === 'light' ? styles.active : ''} calculatorLight`}
 				>
 					<div className={styles.results}>
 						<span
@@ -309,7 +309,7 @@ function App() {
 				<div
 					onClick={toogleThemes}
 					data-theme='dark'
-					className={`${styles.calculator} calculatorDark`}
+					className={`${styles.calculator} ${activeCalculator === 'dark' ? styles.active : ''} calculatorDark`}
 				>
 					<div className={styles.results}>
 						<span
