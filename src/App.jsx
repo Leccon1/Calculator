@@ -142,7 +142,7 @@ function App() {
 	return (
 		<div className={styles.App}>
 			<div className={styles.calculatorContainer}>
-				<div className={`${styles.calculator} ${styles.calculatorLight}`}>
+				<div className={`${styles.calculator} calculatorLight`}>
 					<div className={styles.results}>
 						<span
 							key={historyValue}
@@ -283,7 +283,7 @@ function App() {
 						</div>
 					</div>
 				</div>
-				<div className={`${styles.calculator} ${styles.calculatorDark}`}>
+				<div className={`${styles.calculator} calculatorDark`}>
 					<div className={styles.results}>
 						<span
 							key={historyValue}
