@@ -8,3 +8,10 @@
 .dark {
 	@include theme-vars($colors-dark);
 }
+
+.calculatorLight {
+	@include theme-vars($colors-light);
+}
+.calculatorDark {
+	@include theme-vars($colors-dark);
+}
