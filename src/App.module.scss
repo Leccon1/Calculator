@@ -44,11 +44,11 @@
 	padding: 2.4rem;
 	border-radius: 2.4rem;
 
-	&.calculatorLight {
+	&:global(.calculatorLight) {
 		transform: translateY(-2.4rem);
 	}
 
-	&.calculatorDark {
+	&:global(.calculatorDark) {
 		transform: translateY(2.4rem);
 	}
 
