@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import styles from './App.module.scss'
 
 function App() {
+	const [activeCalculator, setActiveCalculator] = useState('light')
+
 	const [historyValue, setHistoryValue] = useState('0 =')
 	const [resultValue, setResultValue] = useState('0')
 	const [isCalculated, setIsCalculated] = useState(false)
@@ -120,6 +122,16 @@ function App() {
 		}
 	}
 
+	const toogleThemes = e => {
+		const calculators = e.target.closest(`.${styles.calculator}`)
+		if (!calculators) return
+
+		const { theme } = calculators.dataset
+
+		setActiveCalculator(theme)
+		document.documentElement.classList.toggle('dark', theme === 'dark')
+	}
+
 	useEffect(() => {
 		const handleKeyDown = e => {
 			const key = e.key
@@ -142,7 +154,11 @@ function App() {
 	return (
 		<div className={styles.App}>
 			<div className={styles.calculatorContainer}>
-				<div className={`${styles.calculator} calculatorLight`}>
+				<div
+					onClick={toogleThemes}
+					data-theme='light'
+					className={`${styles.calculator} calculatorLight`}
+				>
 					<div className={styles.results}>
 						<span
 							key={historyValue}
@@ -283,7 +299,11 @@ function App() {
 						</div>
 					</div>
 				</div>
-				<div className={`${styles.calculator} calculatorDark`}>
+				<div
+					onClick={toogleThemes}
+					data-theme='dark'
+					className={`${styles.calculator} calculatorDark`}
+				>
 					<div className={styles.results}>
 						<span
 							key={historyValue}
