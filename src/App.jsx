@@ -490,7 +490,7 @@ function App() {
 				</div>
 			) : (
 				<>
-					<button onClick={mobileToggleTheme}>change theme</button>
+					<button className={styles.toggleButton} onClick={mobileToggleTheme}>change theme</button>
 					<div
 						className={`${styles.calculator} ${theme === 'dark' ? 'calculatorDark' : 'calculatorLight'}`}
 					>
