@@ -7,6 +7,11 @@
 	justify-content: center;
 	align-items: center;
 
+	@media (max-width: 768px) {
+		flex-direction: column;
+		gap: 3.2rem;
+	}
+
 	&::after {
 		content: '';
 		position: absolute;
@@ -49,6 +54,16 @@
 		transform 0.3s ease,
 		box-shadow 0.3s ease,
 		filter 0.3s ease;
+
+	@media (max-width: 768px) {
+		filter: blur(0);
+
+		&:global(.calculatorLight),
+		&:global(.calculatorDark) {
+			transform: translateY(0) !important;
+			box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+		}
+	}
 
 	&.active {
 		filter: blur(0);
