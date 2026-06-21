@@ -1,7 +1,12 @@
-import { use, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './App.module.scss'
+import { useMediaQuery } from 'react-responsive'
 
 function App() {
+	const isMobile = useMediaQuery({ maxWidth: 768 })
+
+	const [theme, setTheme] = useState('light')
+
 	const [activeCalculator, setActiveCalculator] = useState('light')
 
 	const [historyValue, setHistoryValue] = useState('0 =')
@@ -139,6 +144,20 @@ function App() {
 		}
 	}
 
+	const mobileToggleTheme = () => {
+		const newTheme = theme === 'light' ? 'dark' : 'light'
+
+		setTheme(newTheme)
+
+		if (newTheme === 'light') {
+			document.documentElement.classList.add('light')
+			document.documentElement.classList.remove('dark')
+		} else {
+			document.documentElement.classList.remove('light')
+			document.documentElement.classList.add('dark')
+		}
+	}
+
 	useEffect(() => {
 		const handleKeyDown = e => {
 			const key = e.key
@@ -160,298 +179,466 @@ function App() {
 
 	return (
 		<div className={styles.App}>
-			<div className={styles.calculatorContainer}>
-				<div
-					onClick={toogleThemes}
-					data-theme='light'
-					className={`${styles.calculator} ${activeCalculator === 'light' ? styles.active : ''} calculatorLight`}
-				>
-					<div className={styles.results}>
-						<span
-							key={historyValue}
-							className={`${styles.history} ${historyValue ? styles['history--visible'] : ''}`}
+			{!isMobile ? (
+				<div className={styles.calculatorContainer}>
+					<>
+						<div
+							onClick={toogleThemes}
+							data-theme='light'
+							className={`${styles.calculator} ${activeCalculator === 'light' ? styles.active : ''} calculatorLight`}
 						>
-							{historyValue}
-						</span>
-						<span className={styles.currentValue}>
-							{resultValue.replaceAll('*', '×').replaceAll('/', '÷')}
-						</span>
-					</div>
-					<div className={styles.buttonsContainer} onClick={handleButtonClick}>
-						<div className={`${styles.buttonHelpers} ${styles.container}`}>
-							<button data-type='clear' className={styles.button}>
-								Ac
-							</button>
-							<button data-type='delete' className={styles.button}>
-								&#8592;
-							</button>
-							<button
-								data-type='operator'
-								data-value='/'
-								className={`${styles.button} ${styles['button--accent']}`}
-							>
-								&#247;
-							</button>
-							<button
-								data-type='operator'
-								data-value='*'
-								className={`${styles.button} ${styles['button--accent']}`}
-							>
-								&#215;
-							</button>
-						</div>
-						<div className={styles.block}>
-							<div className={`${styles.buttonNumbers} ${styles.container}`}>
-								<button
-									data-type='number'
-									data-value='7'
-									className={styles.button}
+							<div className={styles.results}>
+								<span
+									key={historyValue}
+									className={`${styles.history} ${historyValue ? styles['history--visible'] : ''}`}
 								>
-									7
-								</button>
-								<button
-									data-type='number'
-									data-value='8'
-									className={styles.button}
-								>
-									8
-								</button>
-								<button
-									data-type='number'
-									data-value='9'
-									className={styles.button}
-								>
-									9
-								</button>
-								<button
-									data-type='number'
-									data-value='4'
-									className={styles.button}
-								>
-									4
-								</button>
-								<button
-									data-type='number'
-									data-value='5'
-									className={styles.button}
-								>
-									5
-								</button>
-								<button
-									data-type='number'
-									data-value='6'
-									className={styles.button}
-								>
-									6
-								</button>
-								<button
-									data-type='number'
-									data-value='1'
-									className={styles.button}
-								>
-									1
-								</button>
-								<button
-									data-type='number'
-									data-value='2'
-									className={styles.button}
-								>
-									2
-								</button>
-								<button
-									data-type='number'
-									data-value='3'
-									className={styles.button}
-								>
-									3
-								</button>
-								<button
-									data-type='number'
-									data-value='0'
-									className={styles.button}
-								>
-									0
-								</button>
-								<button
-									data-type='dot'
-									data-value='.'
-									className={styles.button}
-								>
-									.
-								</button>
+									{historyValue}
+								</span>
+								<span className={styles.currentValue}>
+									{resultValue.replaceAll('*', '×').replaceAll('/', '÷')}
+								</span>
 							</div>
-							<div className={`${styles.buttonHelpers} ${styles.container}`}>
-								<button
-									data-type='operator'
-									data-value='-'
-									className={`${styles.button} ${styles['button--accent']}`}
-								>
-									-
-								</button>
-								<button
-									data-type='operator'
-									data-value='+'
-									className={`${styles.button} ${styles['button--accent']}`}
-								>
-									+
-								</button>
-								<button
-									data-type='evaluate'
-									data-value='='
-									className={`${styles.button} ${styles['button--equals']} ${styles['button--accent']}`}
-								>
-									=
-								</button>
+							<div
+								className={styles.buttonsContainer}
+								onClick={handleButtonClick}
+							>
+								<div className={`${styles.buttonHelpers} ${styles.container}`}>
+									<button data-type='clear' className={styles.button}>
+										Ac
+									</button>
+									<button data-type='delete' className={styles.button}>
+										&#8592;
+									</button>
+									<button
+										data-type='operator'
+										data-value='/'
+										className={`${styles.button} ${styles['button--accent']}`}
+									>
+										&#247;
+									</button>
+									<button
+										data-type='operator'
+										data-value='*'
+										className={`${styles.button} ${styles['button--accent']}`}
+									>
+										&#215;
+									</button>
+								</div>
+								<div className={styles.block}>
+									<div
+										className={`${styles.buttonNumbers} ${styles.container}`}
+									>
+										<button
+											data-type='number'
+											data-value='7'
+											className={styles.button}
+										>
+											7
+										</button>
+										<button
+											data-type='number'
+											data-value='8'
+											className={styles.button}
+										>
+											8
+										</button>
+										<button
+											data-type='number'
+											data-value='9'
+											className={styles.button}
+										>
+											9
+										</button>
+										<button
+											data-type='number'
+											data-value='4'
+											className={styles.button}
+										>
+											4
+										</button>
+										<button
+											data-type='number'
+											data-value='5'
+											className={styles.button}
+										>
+											5
+										</button>
+										<button
+											data-type='number'
+											data-value='6'
+											className={styles.button}
+										>
+											6
+										</button>
+										<button
+											data-type='number'
+											data-value='1'
+											className={styles.button}
+										>
+											1
+										</button>
+										<button
+											data-type='number'
+											data-value='2'
+											className={styles.button}
+										>
+											2
+										</button>
+										<button
+											data-type='number'
+											data-value='3'
+											className={styles.button}
+										>
+											3
+										</button>
+										<button
+											data-type='number'
+											data-value='0'
+											className={styles.button}
+										>
+											0
+										</button>
+										<button
+											data-type='dot'
+											data-value='.'
+											className={styles.button}
+										>
+											.
+										</button>
+									</div>
+									<div
+										className={`${styles.buttonHelpers} ${styles.container}`}
+									>
+										<button
+											data-type='operator'
+											data-value='-'
+											className={`${styles.button} ${styles['button--accent']}`}
+										>
+											-
+										</button>
+										<button
+											data-type='operator'
+											data-value='+'
+											className={`${styles.button} ${styles['button--accent']}`}
+										>
+											+
+										</button>
+										<button
+											data-type='evaluate'
+											data-value='='
+											className={`${styles.button} ${styles['button--equals']} ${styles['button--accent']}`}
+										>
+											=
+										</button>
+									</div>
+								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-				<div
-					onClick={toogleThemes}
-					data-theme='dark'
-					className={`${styles.calculator} ${activeCalculator === 'dark' ? styles.active : ''} calculatorDark`}
-				>
-					<div className={styles.results}>
-						<span
-							key={historyValue}
-							className={`${styles.history} ${historyValue ? styles['history--visible'] : ''}`}
+						<div
+							onClick={toogleThemes}
+							data-theme='dark'
+							className={`${styles.calculator} ${activeCalculator === 'dark' ? styles.active : ''} calculatorDark`}
 						>
-							{historyValue}
-						</span>
-						<span className={styles.currentValue}>
-							{resultValue.replaceAll('*', '×').replaceAll('/', '÷')}
-						</span>
-					</div>
-					<div className={styles.buttonsContainer} onClick={handleButtonClick}>
-						<div className={`${styles.buttonHelpers} ${styles.container}`}>
-							<button data-type='clear' className={styles.button}>
-								Ac
-							</button>
-							<button data-type='delete' className={styles.button}>
-								&#8592;
-							</button>
-							<button
-								data-type='operator'
-								data-value='/'
-								className={`${styles.button} ${styles['button--accent']}`}
-							>
-								&#247;
-							</button>
-							<button
-								data-type='operator'
-								data-value='*'
-								className={`${styles.button} ${styles['button--accent']}`}
-							>
-								&#215;
-							</button>
-						</div>
-						<div className={styles.block}>
-							<div className={`${styles.buttonNumbers} ${styles.container}`}>
-								<button
-									data-type='number'
-									data-value='7'
-									className={styles.button}
+							<div className={styles.results}>
+								<span
+									key={historyValue}
+									className={`${styles.history} ${historyValue ? styles['history--visible'] : ''}`}
 								>
-									7
-								</button>
-								<button
-									data-type='number'
-									data-value='8'
-									className={styles.button}
-								>
-									8
-								</button>
-								<button
-									data-type='number'
-									data-value='9'
-									className={styles.button}
-								>
-									9
-								</button>
-								<button
-									data-type='number'
-									data-value='4'
-									className={styles.button}
-								>
-									4
-								</button>
-								<button
-									data-type='number'
-									data-value='5'
-									className={styles.button}
-								>
-									5
-								</button>
-								<button
-									data-type='number'
-									data-value='6'
-									className={styles.button}
-								>
-									6
-								</button>
-								<button
-									data-type='number'
-									data-value='1'
-									className={styles.button}
-								>
-									1
-								</button>
-								<button
-									data-type='number'
-									data-value='2'
-									className={styles.button}
-								>
-									2
-								</button>
-								<button
-									data-type='number'
-									data-value='3'
-									className={styles.button}
-								>
-									3
-								</button>
-								<button
-									data-type='number'
-									data-value='0'
-									className={styles.button}
-								>
-									0
-								</button>
-								<button
-									data-type='dot'
-									data-value='.'
-									className={styles.button}
-								>
-									.
-								</button>
+									{historyValue}
+								</span>
+								<span className={styles.currentValue}>
+									{resultValue.replaceAll('*', '×').replaceAll('/', '÷')}
+								</span>
 							</div>
-							<div className={`${styles.buttonHelpers} ${styles.container}`}>
-								<button
-									data-type='operator'
-									data-value='-'
-									className={`${styles.button} ${styles['button--accent']}`}
-								>
-									-
-								</button>
-								<button
-									data-type='operator'
-									data-value='+'
-									className={`${styles.button} ${styles['button--accent']}`}
-								>
-									+
-								</button>
-								<button
-									data-type='evaluate'
-									data-value='='
-									className={`${styles.button} ${styles['button--equals']} ${styles['button--accent']}`}
-								>
-									=
-								</button>
+							<div
+								className={styles.buttonsContainer}
+								onClick={handleButtonClick}
+							>
+								<div className={`${styles.buttonHelpers} ${styles.container}`}>
+									<button data-type='clear' className={styles.button}>
+										Ac
+									</button>
+									<button data-type='delete' className={styles.button}>
+										&#8592;
+									</button>
+									<button
+										data-type='operator'
+										data-value='/'
+										className={`${styles.button} ${styles['button--accent']}`}
+									>
+										&#247;
+									</button>
+									<button
+										data-type='operator'
+										data-value='*'
+										className={`${styles.button} ${styles['button--accent']}`}
+									>
+										&#215;
+									</button>
+								</div>
+								<div className={styles.block}>
+									<div
+										className={`${styles.buttonNumbers} ${styles.container}`}
+									>
+										<button
+											data-type='number'
+											data-value='7'
+											className={styles.button}
+										>
+											7
+										</button>
+										<button
+											data-type='number'
+											data-value='8'
+											className={styles.button}
+										>
+											8
+										</button>
+										<button
+											data-type='number'
+											data-value='9'
+											className={styles.button}
+										>
+											9
+										</button>
+										<button
+											data-type='number'
+											data-value='4'
+											className={styles.button}
+										>
+											4
+										</button>
+										<button
+											data-type='number'
+											data-value='5'
+											className={styles.button}
+										>
+											5
+										</button>
+										<button
+											data-type='number'
+											data-value='6'
+											className={styles.button}
+										>
+											6
+										</button>
+										<button
+											data-type='number'
+											data-value='1'
+											className={styles.button}
+										>
+											1
+										</button>
+										<button
+											data-type='number'
+											data-value='2'
+											className={styles.button}
+										>
+											2
+										</button>
+										<button
+											data-type='number'
+											data-value='3'
+											className={styles.button}
+										>
+											3
+										</button>
+										<button
+											data-type='number'
+											data-value='0'
+											className={styles.button}
+										>
+											0
+										</button>
+										<button
+											data-type='dot'
+											data-value='.'
+											className={styles.button}
+										>
+											.
+										</button>
+									</div>
+									<div
+										className={`${styles.buttonHelpers} ${styles.container}`}
+									>
+										<button
+											data-type='operator'
+											data-value='-'
+											className={`${styles.button} ${styles['button--accent']}`}
+										>
+											-
+										</button>
+										<button
+											data-type='operator'
+											data-value='+'
+											className={`${styles.button} ${styles['button--accent']}`}
+										>
+											+
+										</button>
+										<button
+											data-type='evaluate'
+											data-value='='
+											className={`${styles.button} ${styles['button--equals']} ${styles['button--accent']}`}
+										>
+											=
+										</button>
+									</div>
+								</div>
 							</div>
 						</div>
-					</div>
+					</>
 				</div>
-			</div>
+			) : (
+				<>
+					<button onClick={mobileToggleTheme}>change theme</button>
+					<div
+						className={`${styles.calculator} ${theme === 'dark' ? 'calculatorDark' : 'calculatorLight'}`}
+					>
+						<div className={styles.results}>
+							<span
+								key={historyValue}
+								className={`${styles.history} ${historyValue ? styles['history--visible'] : ''}`}
+							>
+								{historyValue}
+							</span>
+							<span className={styles.currentValue}>
+								{resultValue.replaceAll('*', '×').replaceAll('/', '÷')}
+							</span>
+						</div>
+						<div
+							className={styles.buttonsContainer}
+							onClick={handleButtonClick}
+						>
+							<div className={`${styles.buttonHelpers} ${styles.container}`}>
+								<button data-type='clear' className={styles.button}>
+									Ac
+								</button>
+								<button data-type='delete' className={styles.button}>
+									&#8592;
+								</button>
+								<button
+									data-type='operator'
+									data-value='/'
+									className={`${styles.button} ${styles['button--accent']}`}
+								>
+									&#247;
+								</button>
+								<button
+									data-type='operator'
+									data-value='*'
+									className={`${styles.button} ${styles['button--accent']}`}
+								>
+									&#215;
+								</button>
+							</div>
+							<div className={styles.block}>
+								<div className={`${styles.buttonNumbers} ${styles.container}`}>
+									<button
+										data-type='number'
+										data-value='7'
+										className={styles.button}
+									>
+										7
+									</button>
+									<button
+										data-type='number'
+										data-value='8'
+										className={styles.button}
+									>
+										8
+									</button>
+									<button
+										data-type='number'
+										data-value='9'
+										className={styles.button}
+									>
+										9
+									</button>
+									<button
+										data-type='number'
+										data-value='4'
+										className={styles.button}
+									>
+										4
+									</button>
+									<button
+										data-type='number'
+										data-value='5'
+										className={styles.button}
+									>
+										5
+									</button>
+									<button
+										data-type='number'
+										data-value='6'
+										className={styles.button}
+									>
+										6
+									</button>
+									<button
+										data-type='number'
+										data-value='1'
+										className={styles.button}
+									>
+										1
+									</button>
+									<button
+										data-type='number'
+										data-value='2'
+										className={styles.button}
+									>
+										2
+									</button>
+									<button
+										data-type='number'
+										data-value='3'
+										className={styles.button}
+									>
+										3
+									</button>
+									<button
+										data-type='number'
+										data-value='0'
+										className={styles.button}
+									>
+										0
+									</button>
+									<button
+										data-type='dot'
+										data-value='.'
+										className={styles.button}
+									>
+										.
+									</button>
+								</div>
+								<div className={`${styles.buttonHelpers} ${styles.container}`}>
+									<button
+										data-type='operator'
+										data-value='-'
+										className={`${styles.button} ${styles['button--accent']}`}
+									>
+										-
+									</button>
+									<button
+										data-type='operator'
+										data-value='+'
+										className={`${styles.button} ${styles['button--accent']}`}
+									>
+										+
+									</button>
+									<button
+										data-type='evaluate'
+										data-value='='
+										className={`${styles.button} ${styles['button--equals']} ${styles['button--accent']}`}
+									>
+										=
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</>
+			)}
 		</div>
 	)
 }
